@@ -6,12 +6,23 @@
 
 <script>
 import VideoBox from "../components/VideoBox";
+import API from "../api";
 
 export default {
   name: "FavoritesPage",
   components: {VideoBox},
-  props: {
-    favorites: []
+  data() {
+    return {
+      videos: []
+    }
   },
+  computed: {
+    favorites() {
+      return this.videos.filter(video => video.favorite === true)
+    }
+  },
+  async mounted() {
+    this.videos = await API.getVideoList();
+  }
 }
 </script>

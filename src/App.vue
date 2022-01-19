@@ -16,25 +16,6 @@
 
 export default {
   name: 'App',
-  data() {
-    return {
-      favorites: []
-    }
-  },
-  methods: {
-    isFavorite(videoID) {
-      return this.favorites.includes(videoID)
-    },
-    toggleFavorite(videoID) {
-      if (this.isFavorite(videoID)) {
-        this.favorites = this.favorites.filter(favorite => favorite !== videoID)
-        console.log(`The video ${videoID} removed from favorites`);
-      } else {
-        this.favorites.push(videoID);
-        console.log(`The video ${videoID} added to favorites`);
-      }
-    }
-  },
 }
 </script>
 

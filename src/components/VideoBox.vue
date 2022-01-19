@@ -4,7 +4,6 @@
       <router-link :to="{name: 'WatchPage', query:{id: video.id}}">
         <img :src="video.coverImage" alt="Video Image" class="cover-image" width="100%" height="auto">
       </router-link>
-      <button v-text="this.favoriteButtonText" @click="this.toggleFavorite"></button>
     </div>
 
     <div class="information">
@@ -27,19 +26,7 @@ export default {
   name: 'VideoBox',
   props: {
     video: Object,
-    isFavorite: Function,
-    toggleFavorite: Function,
-    // toggleFavorite: Function,
-    // isFavorite: Function,
   },
-  computed: {
-    favoriteButtonText() {
-      return this.isFavorite(this.video.id) ? '★' : '☆'
-    }
-  },
-  mounted() {
-    this.toggleFavorite(this.video.id);
-  }
 }
 </script>
 
